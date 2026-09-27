@@ -1,0 +1,7 @@
+Currencies Alias API
+https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json
+
+Currencies conversion API
+https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json
+
+Github : https://github.com/fawazahmed0/exchange-api
