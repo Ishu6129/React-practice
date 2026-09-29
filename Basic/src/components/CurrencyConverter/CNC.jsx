@@ -28,50 +28,41 @@ function CNC() {
     }
 
   return (
-    <main className="flex min-h-screen w-full items-center justify-center bg-slate-50 p-4 sm:p-8">
-        <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 gap-6 lg:grid-cols-3">
-            <section className="flex flex-col justify-center gap-8 rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-8 lg:col-span-2 items-center">
-                <h1 className="text-5xl font-semibold text-slate-800">CURRENCY CONVERTER</h1>
-                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                    <InputBox
-                        type="FROM"
-                        amount={amount}
-                        selectedCurrency={fromCurrency}
-                        onAmountChange={(amount) => setAmount(amount)}
-                        onCurrencyChange={(currency) => setFromCurrency(currency)}
-                        options={data}
-                        name={fromCurrencyName}
-                    />
-                    <InputBox
-                        type="TO"
-                        amount={convertAmount}
-                        isDisabled={true}
-                        selectedCurrency={toCurrency}
-                        onAmountChange={(amount) => setConvertedAmount(amount)}
-                        onCurrencyChange={(currency) => setToCurrency(currency)}
-                        options={data}
-                        name={toCurrencyName}
-                    />
-                </div>
-                <button
-                    onClick={convert}
-                    className="self-center rounded-md bg-blue-600 px-6 py-3 text-white hover:bg-blue-700"
-                >
-                    Convert
-                </button>
-            </section>
-
+    <main className="w-full max-w-2xl">
+        <h1 className="text-center text-2xl font-bold">Currency converter</h1>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <InputBox
+                type="From"
+                amount={amount}
+                selectedCurrency={fromCurrency}
+                onAmountChange={setAmount}
+                onCurrencyChange={setFromCurrency}
+                options={data}
+                name={fromCurrencyName}
+            />
+            <InputBox
+                type="To"
+                amount={convertAmount}
+                isDisabled
+                selectedCurrency={toCurrency}
+                onAmountChange={setConvertedAmount}
+                onCurrencyChange={setToCurrency}
+                options={data}
+                name={toCurrencyName}
+            />
+        </div>
+        <div className="mt-4 flex flex-col items-center">
+            <button
+                onClick={convert}
+                className="mt-4 rounded bg-blue-700 px-4 py-2 text-white"
+            >
+                Convert
+            </button>
             {hasConverted && (
-                <aside className="flex h-[90vh] min-h-80 flex-col rounded-lg border border-sky-200 bg-sky-50 p-5">
-                    <h2 className="mb-4 font-semibold text-sky-800">ALL RATES FOR {fromCurrency.toUpperCase()}.{amount}</h2>
-                    <ol className="grid grid-cols-1 gap-x-4 gap-y-1 overflow-y-auto pr-2 text-sm text-slate-700 sm:grid-cols-2">
-                        {Object.entries(currencyInfo).map(([currency, rate]) => (
-                            <li key={currency} className="border-b border-sky-100 py-1">
-                                {currency.toUpperCase()}: {rate * amount}
-                            </li>
-                        ))}
-                    </ol>
-                </aside>
+                <p className="mt-4" aria-live="polite">
+                    {amount} {fromCurrency.toUpperCase()} = {convertAmount} {toCurrency.toUpperCase()}
+                </p>
+                
             )}
         </div>
     </main>

@@ -1,17 +1,15 @@
 import React from 'react'
 
-const ColorButton = (props) => {
-    const handleClick=()=>{
-        document.body.style.backgroundColor=props.color;
-    }
+const ColorButton = ({ color, isSelected, onClick }) => {
   return (
     <button
-      onClick={handleClick}
-      className="rounded-md border-2 border-black px-4 py-2 font-semibold capitalize text-white hover:opacity-80"
-      style={{ backgroundColor: props.color }}
-    >
-      {props.color}
-    </button>
+      type="button"
+      onClick={onClick}
+      aria-label={color}
+      aria-pressed={isSelected}
+      className={`h-10 w-10 rounded-full border ${isSelected ? 'ring-2 ring-offset-2 ring-blue-600' : ''}`}
+      style={{ backgroundColor: color }}
+    />
   )
 }
 
