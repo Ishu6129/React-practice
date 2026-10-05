@@ -26,8 +26,8 @@ const PassWordGenerator = () => {
         generator();
     }, [generator])
     return (
-        <main className="w-full max-w-xl">
-            <h1 className="text-center text-2xl font-bold">Password generator</h1>
+        <main className="w-full max-w-xl self-center">
+            <h1 className="text-center text-2xl font-bold">HASH GEN</h1>
             <div className="mt-4 flex gap-2">
                 <input
                     aria-label="Generated password"

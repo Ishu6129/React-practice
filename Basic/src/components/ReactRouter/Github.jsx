@@ -14,7 +14,7 @@ const Github = () => {
   if (!profile) return <p>Loading GitHub profile...</p>
 
   return (
-    <main className="w-full max-w-2xl text-center">
+    <main className="w-full max-w-2xl self-center text-center">
       <img
         className="mx-auto h-24 w-24 rounded-full"
         src={profile.avatar_url}
@@ -27,7 +27,7 @@ const Github = () => {
         {profile.public_repos} public repositories · {profile.followers} followers
       </p>
       <a
-        className="mt-4 inline-block text-blue-700 underline"
+        className="mt-4 inline-block text-blue-700 underline animate-pulse"
         href={profile.html_url}
         target="_blank"
         rel="noreferrer"

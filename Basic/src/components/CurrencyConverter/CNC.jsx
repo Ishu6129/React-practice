@@ -28,8 +28,8 @@ function CNC() {
     }
 
   return (
-    <main className="w-full max-w-2xl">
-        <h1 className="text-center text-2xl font-bold">Currency converter</h1>
+    <main className="w-full max-w-2xl self-center">
+        <h1 className="text-center text-2xl font-bold">COIN SHIFT</h1>
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <InputBox
                 type="From"

@@ -1,24 +1,28 @@
-import React, { useEffect } from 'react'
-import { useOutletContext } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import ColorButton from './ColorButton'
 
 const BgChange = () => {
-  const { backgroundColor, setBackgroundColor } = useOutletContext()
+  const [backgroundColor, setBackgroundColor] = useState(() => {
+    const savedColor = localStorage.getItem('backgroundColor')
+    return savedColor ? savedColor : 'black'
+  })
   const colors = ['black', 'cyan', 'yellow', 'purple']
-
   useEffect(() => {
-    document.body.style.backgroundColor = backgroundColor
+    localStorage.setItem('backgroundColor', backgroundColor)
   }, [backgroundColor])
-
   return (
-    <main className={`w-full max-w-2xl text-center ${backgroundColor === 'black' || backgroundColor === 'purple' ? 'text-white' : 'text-gray-900'}`}>
-      <h1 className="text-2xl font-bold">Background color</h1>
-      <p className="mt-2">Choose a color to change the page background.</p>
+    <main
+      style={{ backgroundColor }}
+      className={`flex flex-col justify-center w-full h-full rounded-lg px-6 py-8 text-center ${backgroundColor === 'black' || backgroundColor === 'purple' ? 'text-white' : 'text-gray-900'}`}
+    >
+      <h1 className="text-2xl font-bold">BACK DROP</h1>
+      <p className="mt-2">Choose a color to change this panel's background.</p>
       <div className="mt-4 flex flex-wrap justify-center gap-2">
         {colors.map((color) => (
           <ColorButton
             key={color}
             color={color}
+            isSelected={color === backgroundColor}
             onClick={() => setBackgroundColor(color)}
           />
         ))}

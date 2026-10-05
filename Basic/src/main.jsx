@@ -11,6 +11,8 @@ import Github,{githubInfoLoader} from './components/ReactRouter/Github.jsx';
 import BgChange from './components/ChangeBg/BgChange';
 import PassWordGenerator from './components/PassGenerator/PassWordGenerator';
 import CNC from './components/CurrencyConverter/CNC';
+import AppContext from './components/ContextApi/AppContext.jsx';
+import TodoApp from './components/ContextApi/ToDo/TodoApp.jsx';
 
 // const routes = createBrowserRouter([
 //   {
@@ -29,9 +31,11 @@ const routes = createBrowserRouter(
       <Route path='' element={<Github />} loader={githubInfoLoader} />
       <Route path='about' element={<About />} />
       <Route path='contact' element={<Contact />} />
-      <Route path='background-changer' element={<BgChange />} />
-      <Route path='password-generator' element={<PassWordGenerator />} />
-      <Route path='currency-converter' element={<CNC />} />
+      <Route path='back-drop' element={<BgChange />} />
+      <Route path='hash-gen' element={<PassWordGenerator />} />
+      <Route path='coin-shift' element={<CNC />} />
+      <Route path="test" element={<AppContext/>} />
+      <Route path="task-list" element={<TodoApp/>}/>
     </Route>
   )
 )
