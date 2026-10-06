@@ -1,0 +1,4 @@
+1. Make a store using configureStore
+2. Make reducers (slices)
+3. export all the functionality as "actions"
+4. export all reducers list

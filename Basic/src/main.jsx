@@ -11,8 +11,8 @@ import Github,{githubInfoLoader} from './components/ReactRouter/Github.jsx';
 import BgChange from './components/ChangeBg/BgChange';
 import PassWordGenerator from './components/PassGenerator/PassWordGenerator';
 import CNC from './components/CurrencyConverter/CNC';
-import AppContext from './components/ContextApi/AppContext.jsx';
 import TodoApp from './components/ContextApi/ToDo/TodoApp.jsx';
+import AppRedux from './components/Redux/AppRedux.jsx';
 
 // const routes = createBrowserRouter([
 //   {
@@ -34,7 +34,7 @@ const routes = createBrowserRouter(
       <Route path='back-drop' element={<BgChange />} />
       <Route path='hash-gen' element={<PassWordGenerator />} />
       <Route path='coin-shift' element={<CNC />} />
-      <Route path="test" element={<AppContext/>} />
+      <Route path="test" element={<AppRedux/>} />
       <Route path="task-list" element={<TodoApp/>}/>
     </Route>
   )
